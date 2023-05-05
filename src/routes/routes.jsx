@@ -1,13 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { Home } from "../pages/Home";
+
+
 export const AppRoutes = () => {
     return (
-        <BrowserRouter>
+        
+        <HashRouter>
             <Routes>
-                <Route path="/tela-login-google/" element={<Login />} />
-                <Route path="/tela-login-google/home" element={<Home />} />
+                <Route exact path="/" element={<Login />} />
+                <Route path="/home" element={<Home />} />
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
+     
     );
 }
