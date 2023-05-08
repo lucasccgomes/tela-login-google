@@ -8,6 +8,8 @@ export const Home = () => {
   return (
     <div>
       <h1>Bem Vindo {userLogado.displayName}</h1>
+      <img src={userLogado.photoURL} alt="Foto do Perfil" />
+      <p>Email: {userLogado.email}</p>
       <button onClick={() => signOut()} >Sair</button>
     </div>
   );
