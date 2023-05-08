@@ -1,32 +1,27 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { app } from "../../services/firebaseconfig";
+import { useContext } from "react";
+import { AuthGoogleContext } from "../../context/authGoogle";
+import { Navigate } from "react-router-dom";
 
-const provider = new GoogleAuthProvider();
+
+
+
 
 export const Login = () => {
-  const auth = getAuth(app);
-  const signInGoogle = () => {
 
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        console.log(user)
+  const { signInGoogle, signed } = useContext(AuthGoogleContext);
 
-      }).catch((error) => {
+  async function loginGoogle() {
+    await signInGoogle()
 
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-
-      });
+  }
+  if (!signed) {
+    return (
+      <div>
+        <button onClick={() => signInGoogle()}>Logar com Google</button>
+      </div>
+    );
+  } else {
+    return <Navigate to="/home" />
   }
 
-  return (
-    <div>
-      <button onClick={signInGoogle}>Logar com Google</button>
-    </div>
-  );
 }
