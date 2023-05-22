@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { AuthGoogleContext } from "../../context/authGoogle";
-import { Link, Navigate } from "react-router-dom";
-import { LoginEmail } from "../Login-email";
+import { Navigate } from "react-router-dom";
 
 
 export const Login = () => {
@@ -13,12 +12,9 @@ export const Login = () => {
   }
   if (!signed) {
     return (
-      <>
-        <LoginEmail />
         <div>
           <button onClick={() => signInGoogle()}>Logar com Google</button>
         </div>
-      </>
     );
   } else {
     return <Navigate to="/home" />

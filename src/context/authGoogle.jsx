@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../services/firebaseconfig";
-import { Navigate } from "react-router-dom";
 
 const provider = new GoogleAuthProvider();
 
