@@ -25,6 +25,7 @@
 
 .containerlogin button {
     background-color: transparent;
+    color: rgb(108, 109, 110);
     min-height: 40px;
     min-width: 220px;
     display: flex;
